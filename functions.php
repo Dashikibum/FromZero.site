@@ -1,47 +1,4 @@
 <?php
-/*function open_file (){
-  if( isset($_GET['name']) ){
-    $name = str_replace('.', '&&&', $_GET['name']);
-
-    $filename = 'pages/' . $name . '.txt';
-    if (file_exists($filename)) { 
-      $file = file_get_contents( $filename);
-    }  
-  }else{
-    $file = '';
-  }   
-  return $file;
-}*/
-
-/*page form*/
-/*$pageID = 0;
-if( isset($_GET['pageID']) ){
-  $pageID = (int)$_GET['pageID'];
-  $page = get_page($pageID);
-  if( !$page ) {
-    // 404
-    exit();
-  }
-}else{
-    // searchform
-*/
-/*function page*/
-/*function get_page($id) {
-  $mysqli = new mysqli('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
-  $mysqli->set_charset("utf8");
-  if( $id ==-1 ){
-    $query = "select * from pages order by id desc limit 0,1";
-  }else{
-    $query = "select * from pages where id=$id";
-  }
-  $result = $mysqli->query($query);
-  if( $result->num_rows > 0 ) {
-    $data = $result->fetch_assoc();
-  return $data;
-  } else {
-    return false;
-  }
-};*/
 $namepage ='';
 if( isset($_GET['namepage']) ){
   $namepage = (string)$_GET['namepage'];
@@ -60,7 +17,7 @@ if( isset($_GET['NamePage']) ){
   if( isset($_GET['searching']) ){
       $searching = $_GET['searching'];
 
-      if( strlen($searching)<5 ){
+      if( strlen($searching)< 3){
         $page = array(
         'caption' => "Результаты поиска:",
         'body' => "слишком короткий поисковой запрос"
@@ -94,7 +51,6 @@ if( isset($_GET['NamePage']) ){
     }
       
   }else {
-		/*$page = get_page('ppp') ;*/
     $page0 = get_previu(0);
 		$page1 = get_previu(1);
 		$page2 = get_previu(2);
@@ -104,18 +60,11 @@ if( isset($_GET['NamePage']) ){
 
 	}
 }
-
-
-
-
+/*function create page*/
 function get_page($Name){
   $mysqli = new mysqli('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
   $mysqli->set_charset("utf8");
- /* if( $Name == 'ppp'){
-    $query = "select * from pages order by id desc limit 0,1";
-  }else{*/
     $query = "select Name, caption, body, adddate from pages where Name LIKE '%" . $Name . "%'";
- /* }*/
   $result = $mysqli->query($query);
   if( $result->num_rows > 0 ) {
   
@@ -126,7 +75,7 @@ function get_page($Name){
   }
 
 }
-
+/*function create previu*/
 function get_previu($index){
   
   $mysqli = new mysqli('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
@@ -138,13 +87,13 @@ function get_previu($index){
  
   return ($data[$index]);
 }
-/* function search*/
- 
+
+/* function create search*/
 function get_search($query){
   $mysqli = new mysqli('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
   $mysqli->set_charset("utf8");
  
-  $q ="SELECT  id, caption, body FROM pages WHERE body LIKE '%" . $query . "%' OR caption LIKE '%" . $query ."%'";
+  $q ="SELECT  id, caption, previu FROM pages WHERE previu LIKE '%" . $query . "%' OR caption LIKE '%" . $query ."%'";
   $result = $mysqli->query($q);
   if( $result->num_rows > 0 ) {
   	$text = $result->fetch_assoc();

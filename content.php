@@ -8,6 +8,7 @@
                <?php echo $page['caption'];?>
                 <?php echo $page1[1] ;?>
                  <?php echo $page['body'] ;?>
+                 <?php echo $page['previu'] ;?>
               
                <?php echo $page2[0] ;?>
                 <?php echo $page2[1] ;?>

@@ -17,9 +17,38 @@ body {
 a{
   text-decoration:none;
 }
+a{
+  color: #333;
+}
 h1,h2,h3{
   line-height: 32px;
   font-family: 'Open Sans', sans-serif;
+}
+input[type="search"]{
+  min-width: 228px;
+  color: #666;
+  padding: 10px;
+  height: 40px;
+  font-family: 'Merriweather', serif;
+  border: 1px solid #ccc;
+  float: left;
+}
+input[type="submit"]{
+  display: block;
+  width: 30%;
+  font-size: 14px;
+  height: 40px;
+  padding: 0;
+  text-align: center;
+  background: #2c3e50;
+  box-shadow: none;
+  border: none;
+  color: #fff;
+  border-radius: 0;
+
+}
+input[type="text"]{
+  min-width: 228px;
 }
 button, input, select, textarea {
   font-size: 100%;
@@ -47,9 +76,9 @@ header{
 
 header .podheader{
   display:grid;
-  width:980px;
+  max-width:980px;
   height:57px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:minmax(200px, 680px) minmax(120px, 300px);
   align-items:center;
 }
 header .podheader div:nth-child(2){
@@ -95,7 +124,7 @@ header p{
 .podcontent{
   max-width:980px;
   display:grid;
-  grid-template-columns:minmax(300px, 680px) minmax(120px, 300px);/*media*/
+  grid-template-columns:minmax(200px, 680px) minmax(120px, 300px);/*media*/
   grid-column-gap:40px;/*media*/
 }
 /*content*/
@@ -151,39 +180,19 @@ article p{
   line-height: normal;
 }
 label{
-  float: left !important;
+  float: left;
   width: 70%;
 }
 input{
   vertical-align: baseline;
 }
-input[type="search"]{
-  min-width: 228px;
-  color: #666;
-  padding: 10px;
-  height: 40px;
-  font-family: 'Merriweather', serif;
-  border: 1px solid #ccc;
-  float: left;
-}
-input[type="submit"]{
-  display: block;
-  width: 30%;
-  font-size: 14px;
-  height: 40px;
-  padding: 0;
-  text-align: center;
-  background: #2c3e50;
-  box-shadow: none;
-  border: none;
-  color: #fff;
-  border-radius: 0;
-
+aside h1{
+  font-size:13px;
+  padding:0;
+  margin:0;
+  line-height: 26px;
 }
 
-input[type="text"]{
-  min-width: 228px;
-}
 aside input{
   margin-bottom:28px;
 }
@@ -233,13 +242,16 @@ textarea{
   vertical-align: top;
   width: 100%;
   margin-bottom:28px;
+  height:150px;
 }
+
 .comment-form-box input[type="text"]{
   padding: 8px 8px;
   width: 100%;
   max-width: 430px;
   border:1px solid #CCCCCC;
   margin:0;
+  
 }
 .comment-form-box textarea{
   margin:0;
@@ -250,4 +262,33 @@ textarea{
 .strim{
   max-width:620px;
   width: 100%;
+}
+@media screen and (max-width: 500px) {
+.podcontent{
+  max-width:500px;
+  grid-template-columns:none;
+  grid-template-areas: 
+  'search'
+  'content';
+  grid-column-gap:40px;/*media*/
+}
+article{
+  grid-area:content;
+}
+aside{
+  grid-area:search;
+}
+
+header .podheader{
+  max-width:500px;
+  height:auto;
+}
+header .podheader div:nth-child(2){
+  justify-self: end;
+  margin-bottom:0px;
+}
+header .podheader div:nth-child(2) a{
+  font-size: 90%;
+  padding: 11px 0px 11px 0px;
+}
 }
