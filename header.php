@@ -23,14 +23,6 @@
             </div>
           </div>
         </header><!--header-->
-        
-            <aside>
-              <form name = "search" class="search-form" role="search" method="get">
-                <label>
-                  <input class="placehold" placeholder="Поиск..." value="" name = "searching" type="search">
-                </label>
-                <input value="Поиск" type="submit">
-              </form>
               
         <div class="content">
           <div class="podcontent">
