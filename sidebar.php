@@ -6,12 +6,6 @@
                 </label>
                 <input value="Поиск" type="submit">
               </form>
-              <!--<h2 class="sidebar-title">Рубрики</h2>
-              <div class="widget" >
-              <ul>
-               
-              </ul>
-              </div>-->
               <div class="widget">
               <h2 class="sidebar-title">Свежие записи</h2>
               <ul>
