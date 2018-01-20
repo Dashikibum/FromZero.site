@@ -13,4 +13,7 @@
    <?php echo $page2[0] ;?>
    <?php echo $page2[1] ;?>
    
+   <?php echo $page3[0] ;?>
+   <?php echo $page3[1] ;?>
+   
 </article> 

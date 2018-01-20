@@ -12,6 +12,7 @@
                 <li><a href="/?NamePage=ystanovka_wordpress_na_pk">Установка WordPress на ПК</a></li>
                 <li><a href="/?NamePage=wordpress_first">WordPress</a></li>
                 <li><a href="/?NamePage=server_vps_na_linode">Удаленный сервер VPS на Linode</a></li>
+                <li><a href="/?NamePage=Css_grid">CSS Grid Layout</a></li>
               </ul>
               </div>
             </aside>

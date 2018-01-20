@@ -292,3 +292,25 @@ header .podheader div:nth-child(2) a{
   padding: 11px 0px 11px 0px;
 }
 }
+/*span*/
+.code{
+  border:1px solid gray;
+  margin:0;
+  padding:0px;
+}
+code{
+  margin:0;
+  padding:0px;
+}
+.divspan{
+  color:#A5216A;
+}
+.spanid{
+  color:#82AB32;
+}
+.colorid{
+  color:#3993BA;
+}
+.childspan{
+  color:#FFA94D;
+}
