@@ -1,8 +1,4 @@
 <?php
-$namepage ='';
-if( isset($_GET['namepage']) ){
-  $namepage = (string)$_GET['namepage'];
-  }
   
 $NamePage = '';
 if( isset($_GET['NamePage']) ){
@@ -80,7 +76,7 @@ function get_previu($index){
   
   $mysqli = new mysqli('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
   $mysqli->set_charset("utf8");
-  $query = "select caption, previu, id from pages order by id desc";
+  $query = "select caption, previu, Name from pages order by id desc";
   $result = $mysqli->query($query);
   $result->num_rows;
   $data = $result->fetch_all();

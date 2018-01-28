@@ -1,7 +1,8 @@
             <article>
-              <div class="block">
-                <a class="zagol" href="#"><h1><?php echo $page['caption'];?></h1></a>
-                <?php echo $page['body'] ;?>
-              </div>
+               <div class="block">
+  
+                <a class="zagol" href="/?NamePage=<?php echo $page['Name']; ?>"><h1 class="zagol"><?php echo $page['caption'];?></h1></a>
+                <div class="text"><?php echo $page['body'] ;?></div>
+              </div><!--block-->  
             </article> 
  
