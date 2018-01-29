@@ -1,16 +1,6 @@
 
-<?php include("header.php")  ;?>
-  
-  
-<form method="POST">
-Логин <input name="login" type="text"><br>
-Пароль <input name="password" type="password"><br>
-<input name="submit" type="submit" value="Войти">
-</form>
-  
-<?php include("footer.php"); ?> 
-
 <?php
+
 function generateCode($length=6) {
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHI JKLMNOPRQSTUVWXYZ0123456789";
     $code = "";
@@ -21,9 +11,10 @@ function generateCode($length=6) {
     return $code;
 }
 
-$link=mysqli_connect('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
-
 if(isset($_POST['submit'])){
+
+    $link=mysqli_connect('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
+    
     $query = mysqli_query($link,"SELECT user_id, user_password FROM users WHERE user_login='".mysqli_real_escape_string($link,$_POST['login'])."' LIMIT 1");
     $data = mysqli_fetch_assoc($query);
 
@@ -36,11 +27,36 @@ if(isset($_POST['submit'])){
         }
 
         mysqli_query($link, "UPDATE users SET user_hash='".$hash."' ".$insip." WHERE user_id='".$data['user_id']."'");
-
-        setcookie("id", $data['user_id'], time()+60*60*24*30);
-        setcookie("hash", $hash, time()+60*60*24*30,null,null,null,true);
-        header("Location: check.php"); exit();
+        
+        session_start();
+        
+        $_SESSION['name'] = $_POST['login'];
+        
+        header("Location: pageform.php"); 
+        
     }else{
         print "Вы ввели неправильный логин/пароль";
     }
-}?>
+}
+
+if(isset($_POST['goy'])) {
+
+  $mysqli = new mysqli('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
+  $mysqli->set_charset("utf8");
+
+  $captions = $_POST['captions'];
+  $body = $_POST['body'];
+  $previu = $_POST['previu'];
+  $data = $_POST['data'];
+  $pagename = $_POST['pagename'];
+  $metky =$_POST['metky'];
+  
+  
+  
+  $query = "INSERT INTO `pages` (`id`, `caption`, `body`, `previu`, `adddate`, `Name`, `metky`) VALUES (NULL, '$captions', '$body','$previu', '$data', '$pagename', '$metky')";
+  $result = $mysqli->query($query);
+        
+        header("Location: answer.php"); exit();
+}
+?>
+ 

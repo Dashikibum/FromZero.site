@@ -1,0 +1,20 @@
+body{
+  text-align:center;
+  max-width:1080px;
+  margin:0 auto;
+  
+}
+form .login{
+  padding-top:10%;
+}
+.login input[type="submit"]{
+  margin-top:20px;
+}
+.gridform{
+  display:relative;
+
+}
+.postform input[type="text"]{
+  width:100%;
+  
+}
