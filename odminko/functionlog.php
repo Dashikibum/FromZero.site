@@ -51,12 +51,22 @@ if(isset($_POST['goy'])) {
   $pagename = $_POST['pagename'];
   $metky =$_POST['metky'];
   
-  
-  
   $query = "INSERT INTO `pages` (`id`, `caption`, `body`, `previu`, `adddate`, `Name`, `metky`) VALUES (NULL, '$captions', '$body','$previu', '$data', '$pagename', '$metky')";
   $result = $mysqli->query($query);
         
         header("Location: answer.php"); exit();
 }
+
+function generate_pagelog($href){
+session_start();
+ if(isset($_SESSION['name'])){
+ 
+    include("$href");
+  }else{
+  print_r("сначала авторизируйтесь" . "<a href="."login.php".">Войти</a>");
+  }
+}
+
+
 ?>
  
