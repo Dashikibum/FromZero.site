@@ -1,13 +1,6 @@
 <?php include("functionlog.php");?>
 <?php include("headerform.php");?>
-
-<div class="gridform">
-  <div  class="leftbar">
-     <ul>
-      <li><a href="rtrtrt.php">Отправить статью</a></li>
-      <li><a href="rtrtrt.php">Редактировать страницы</a></li>
-    </ul>
-  </div>
+<?php include("leftbar.php");?>
     <div class="forma">
       <form class="postform" method="POST">
         <p>Заголовок</p>

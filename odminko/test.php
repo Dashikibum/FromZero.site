@@ -1,15 +1,20 @@
 
-<?php 
-$name="css_grid";
-function getmy($name){
+<?php include("headerform.php");?>
+<?php include("leftbar.php");?>
 
- mysqli = new mysqli('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
-  $mysqli->set_charset("utf8");
+ <?php 
+ 
+ $mysqli = new mysqli('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
+ $mysqli->set_charset("utf8");
 
-  $query = "select caption, body, previu, adddate, Name, metky from pages where Name LIKE '%" . $name . "%'";
+  $query = "select Name from pages";
   
   $result = $mysqli->query($query);
+  $data=$result->fetch_all();
+  $p=$data[2];
+  print_r($p[0]);
+  
+  ?>
 
-  print_r($query);
-}
-  ?> 
+
+<?php include("footerform.php");?>

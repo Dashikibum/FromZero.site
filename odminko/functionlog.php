@@ -66,7 +66,28 @@ session_start();
   print_r("сначала авторизируйтесь" . "<a href="."login.php".">Войти</a>");
   }
 }
+function get_src(){
+  $mysqli = new mysqli('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
+  $mysqli->set_charset("utf8");
 
+  $query = "select Name from pages order by id desc";
+  
+  $result = $mysqli->query($query);
+  $result->num_rows;
+  $data = $result->fetch_all();
+  
+  return ($result);
+}
+function get_mysqlpage($name){
+  $mysqli = new mysqli('127.0.0.1', 'from-zero', 'fTQI1tmD7zZt699b', 'from-zero');
+  $mysqli->set_charset("utf8");
 
+  $query = "select caption, body, previu, adddate, Name, metky from pages where Name LIKE 'css_grid'";
+  
+  $result = $mysqli->query($query);
+  $data = $result->fetch_assoc();
+
+  print_r($data);
+  }
 ?>
  
