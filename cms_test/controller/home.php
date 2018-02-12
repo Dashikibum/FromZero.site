@@ -6,7 +6,7 @@ include 'libs/previewGenerator.php';
 include 'model/pages.php';
 
 function renderPage($config) {
-  $homeData = getLastPages($config);
+  $homeData = getLastPages($config['previews_on_home'],$config );
 
   $replaces = [
     '{TITLE}' => $config['website_title'], // помещаем в реплейсы пока только одну титьлю
