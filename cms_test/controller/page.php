@@ -10,7 +10,7 @@ function renderPage($config) {
   }else{
   $name = '404'; // выставляем страницу по умолчанию - 404 - ничего не найдено
   }
-  $pageData = getPage($name);
+  $pageData = getPage($name, $config);
   
   if( !$pageData ) { // если нет зафигачиваем сами инфу, что такой страницы нет
     $replaces = [
