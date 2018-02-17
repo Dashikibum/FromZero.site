@@ -1,14 +1,15 @@
-<?php include("functions.php")?>
-<?php include("header.php")  ;?>
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-<?php if( isset($_GET['NamePage']) ){
-        include("page.php");
-        }else if( isset($_GET['searching']) ){
-        include("search.php");
-        }else if( isset($_GET['email']) ){
-        include("kontakty.php");
-        }else{
-          include("content.php");
-        } ?> 
-<?php include("sidebar.php"); ?> 
-<?php include("footer.php"); ?> 
+include 'config.php';
+include 'libs/route.php';
+
+$route = getRoute();
+
+include "controller/$route.php";
+
+echo renderPage($config);
+
+?>

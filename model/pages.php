@@ -38,5 +38,30 @@ function getPage($name,$config) {
     return false; // статьи нет
 }
 
+function get_search($searching, $config){
+  $mysqli = new mysqli($config['db_host'], $config['db_user'], $config['db_pass'], $config['db_name']);
+  $mysqli->set_charset("utf8");
+ 
+  $q ="SELECT  id, caption, previu FROM pages WHERE previu LIKE '%" . $searching . "%' OR caption LIKE '%" . $searching ."%'";
+  $result = $mysqli->query($q);
+  if( $result->num_rows > 0 ) {
+  	$pagesData = $result->fetch_assoc();
+  }else{
+    $pagesData =array(
+    'caption' => 'Результаты поиска:',
+    'previu' => 'По Вашему запросу ничего не найдено '
+    );
+  }
+  return $pagesData;
+}
 
+function get_mail($wot, $imya, $email, $config){
+        
+  $mysqli = new mysqli($config['db_host'], $config['db_user'], $config['db_pass'], $config['db_name']);
+  $mysqli->set_charset("utf8");
+
+  $query = "INSERT INTO mail(email, Qwest, name) VALUES ('$email', '$wot', '$imya')";
+  $result = $mysqli->query($query);
+    
+}
 ?>
